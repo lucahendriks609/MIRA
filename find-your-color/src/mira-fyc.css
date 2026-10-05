@@ -160,6 +160,15 @@
 .mk-commit { display: grid; gap: 10px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--mk-line); }
 .mk-commit > p { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; color: var(--mk-drip); }
 .mk-backdoor { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--mk-drip); padding-top: 6px; }
+/* Dropdown: wat houdt je nog tegen */
+.mk-acc { display: grid; border-top: 1px solid var(--mk-line); }
+.mk-acc-item { border-bottom: 1px solid var(--mk-line); }
+.mk-acc-head { appearance: none; background: transparent; border: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 2px; cursor: pointer; color: var(--mk-drip); font: inherit; font-size: 16px; text-align: left; min-height: 48px; }
+.mk-acc-head::after { content: "+"; font-family: var(--mk-display); font-size: 18px; color: var(--mk-ocean); flex: none; }
+.mk-acc-head[aria-expanded="true"]::after { content: "\2013"; }
+.mk-acc-head:hover span { text-decoration: underline; text-decoration-color: var(--mk-ocean); text-underline-offset: 4px; }
+.mk-acc-panel { padding: 0 0 18px; }
+.mk-acc-panel .mk-panel { padding: 18px; }
 .mk-stock { font-size: 13px; color: var(--mk-drip); }
 .mk-panel .mk-tools { margin-top: -4px; }
 

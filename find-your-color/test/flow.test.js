@@ -31,8 +31,17 @@ const btn = s => [...d.querySelectorAll('button')].find(x => x.textContent.inclu
   assert.strictEqual(d.querySelectorAll('.mk-rank li').length, 3, 'top 3 ontbreekt');
   btn('Niet helemaal').click();
   assert.ok(/misschien meer jij/.test(d.querySelector('.mk-commit').textContent), 'commitment werkt niet');
+  const heads = () => d.querySelectorAll('.mk-acc-head');
+  assert.strictEqual(heads().length, 6, 'dropdown: zes rijen verwacht');
+  assert.ok(!d.querySelector('.mk-acc-panel'), 'dropdown: standaard dicht');
   btn('Ik twijfel tussen twee').click();
+  assert.strictEqual(d.querySelectorAll('.mk-acc-panel').length, 1, 'dropdown: één rij open');
+  assert.strictEqual(d.querySelector('.mk-acc-head[aria-expanded="true"]').dataset.obj, 'two');
   const two = btn('Neem ').textContent; const names = two.replace('Neem ', '').split(' · ')[0].split(' en ');
   assert.notStrictEqual(names[0], names[1], 'twee keer dezelfde kleur aangeboden');
+  btn('Ik heb nog geen lamp').click();
+  assert.strictEqual(d.querySelectorAll('.mk-acc-panel').length, 1, 'dropdown: maar één tegelijk open');
+  btn('Ik heb nog geen lamp').click();
+  assert.ok(!d.querySelector('.mk-acc-panel'), 'dropdown: klik sluit weer');
   console.log('OK  flow: intro → 7 vragen → reveal → uitslag → commitment → bezwaar');
 })().catch(e => { console.error('FAIL', e.message); process.exit(1); });

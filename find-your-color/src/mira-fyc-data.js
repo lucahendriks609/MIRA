@@ -128,7 +128,7 @@ window.MIRA_FYC = {
      reveal: korte opbouw vóór de uitslag. {n} = aantal kleuren.
      painLabels: benoemen de frustratie die iemand bij vraag 'pain' koos (tactical empathy).
      commitment: kleine 'ja' op de uitslag.
-     objections: 'Wat houdt je nog tegen?' (Isolate & Close). action bepaalt wat de engine toont:
+     objections: 'Wat houdt je nog tegen?' als dropdown (Isolate & Close). action bepaalt wat de engine toont:
        lamp | skill | two | work | later | close */
   insights: {
     season: {
@@ -164,30 +164,35 @@ window.MIRA_FYC = {
   },
 
   objectionsTitle: 'Wat houdt je nog tegen?',
-  objectionsHint: 'Kies wat het dichtst in de buurt komt.',
-  backDoor: 'Is er verder nog iets dat je tegenhoudt?',
+  objectionsHint: 'Tik open wat het dichtst bij komt.',
+  backDoor: 'Staat er nog iets tussen jou en {color}?',
   backDoorNo: 'Nee, ik ga voor {color}',
   backDoorYes: 'Ja, nog iets',
+  workYes: '{color} past bij een werkdag en bij alles wat daarna komt.',
+  workAlt: 'Zoek je iets stillers voor kantoor? {alt} past ook bij je, met {percent}% match, en valt zachter op.',
+  twoCta: 'Neem {a} en {b}',
+  laterCta: 'Alle MIRA Colors',
+  closeCta: 'Leg {color} in je winkelmand',
   objections: [
-    { id: 'lamp', option: 'Ik heb geen UV/LED-lamp', action: 'lamp',
-      empathy: 'Het klinkt alsof je nog niet zeker weet of je het hele ritueel in huis wilt halen.',
-      answer: 'Gellak hardt uit onder UV/LED-licht, dus een lamp heb je nodig. Je kunt de lamp los nemen, of in één keer beginnen met het starterpack.' },
+    { id: 'lamp', option: 'Ik heb nog geen lamp', action: 'lamp',
+      empathy: 'Het klinkt alsof je nog niet weet of je het hele ritueel in huis wilt halen.',
+      answer: 'Een kleur wordt pas echt vast onder licht. Gellak hardt uit onder UV/LED, dus een lamp hoort erbij. Je neemt hem los, of begint in \u00e9\u00e9n keer met het starterpack.' },
     { id: 'skill', option: 'Ik weet niet of ik het zelf kan', action: 'skill',
-      empathy: 'Het voelt misschien als iets wat je alleen in de salon laat doen.',
-      answer: 'Het ritueel is te leren. In de Glow Guide staat het stap voor stap, van prep tot top coat.',
+      empathy: 'Het klinkt alsof dit ritueel tot nu toe van iemand anders was.',
+      answer: 'Elke vaste hand begon met een eerste keer. In de Glow Guide staat het ritueel stap voor stap, van prep tot top coat.',
       link: { label: 'Lees de Glow Guide', url: '/blogs/glow-guides/stap-voor-stap-de-perfecte-gelpolish-manicure-thuis' } },
     { id: 'two', option: 'Ik twijfel tussen twee kleuren', action: 'two',
-      empathy: 'Het klinkt alsof ze allebei iets van jou laten zien.',
-      answer: 'Dan hoef je niet te kiezen. Draag de ene nu en bewaar de andere voor je volgende ritueel.' },
+      empathy: 'Het klinkt alsof ze allebei een kant van jou laten zien.',
+      answer: 'Dan hoef je niet te kiezen. De ene draag je nu, de andere bewaar je voor een ander verhaal.' },
     { id: 'work', option: 'Past het wel bij mijn werk?', action: 'work',
-      empathy: 'Het klinkt alsof je een kleur wilt die ook op maandagochtend klopt.',
+      empathy: 'Het klinkt alsof je een kleur zoekt die ook op maandagochtend klopt.',
       answer: '' },
     { id: 'later', option: 'Ik wil eerst nog rondkijken', action: 'later',
-      empathy: 'Het klinkt alsof je niet over één nacht ijs gaat. Dat past bij je.',
-      answer: 'Bewaar je kaart hieronder, dan heb je je kleur zo terug. Of leg je top 3 naast alle andere MIRA Colors.' },
+      empathy: 'Het klinkt alsof je liever zeker weet dan snel kiest. Dat past bij je.',
+      answer: 'Een goede kleur mag rijpen. Bewaar je kaart hieronder, dan vind je hem zo terug. Of leg je top 3 naast alle andere MIRA Colors.' },
     { id: 'close', option: 'Niets, ik ga ervoor', action: 'close',
       empathy: '',
-      answer: 'Dan staat {color} klaar.' }
+      answer: 'Dan wacht {color} op je.' }
   ],
 
   /* ---------- Ritueel (onder de uitslag) ---------- */

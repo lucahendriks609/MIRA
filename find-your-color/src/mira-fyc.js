@@ -377,23 +377,13 @@
     ]);
   }
   function workFix(r, c) {
-    if (c.occasion.indexOf('work') > -1) return { text: c.name + ' draag je net zo makkelijk naar je werk als daarbuiten.', alt: null };
+    if (c.occasion.indexOf('work') > -1) return { text: fill(D.workYes, { color: c.name }), alt: null };
     var alt = r.all.filter(function (row) { return row.color.occasion.indexOf('work') > -1; })[0];
-    return { text: 'Wil je het voor kantoor wat ingetogener? ' + alt.color.name + ' past ook bij je, met ' + alt.percent + '% match, en valt rustiger op.', alt: alt };
+    return { text: fill(D.workAlt, { alt: alt.color.name, percent: alt.percent }), alt: alt };
   }
 
-  function objectionBlock(r, c, p) {
-    var sec = el('section', { class: 'mk-section', 'aria-label': D.objectionsTitle }, [el('h3', { text: D.objectionsTitle })]);
-    var o = state.objection && D.objections.filter(function (x) { return x.id === state.objection; })[0];
-    if (!o) {
-      sec.appendChild(el('p', { class: 'mk-quiet', text: D.objectionsHint }));
-      sec.appendChild(el('div', { class: 'mk-options mk-options--chips', role: 'group', 'aria-label': D.objectionsTitle },
-        D.objections.filter(function (x) { return state.handled.indexOf(x.id) === -1; }).map(function (x) {
-          return el('button', { class: 'mk-opt', type: 'button', 'aria-pressed': 'false', onclick: function () { state.objection = x.id; render('keep'); } }, [el('strong', { text: x.option })]);
-        })));
-      return sec;
-    }
-    var panel = el('div', { class: 'mk-panel' }, [el('span', { class: 'mk-tag', text: o.option })]);
+  function objectionPanel(o, r, c, p) {
+    var panel = el('div', { class: 'mk-panel' });
     if (o.empathy) panel.appendChild(el('p', { class: 'mk-label', text: o.empathy }));
     var otherRow = r.top.filter(function (row) { return row.color.handle !== c.handle; })[0];
     var top2 = otherRow ? otherRow.color : null;
@@ -412,24 +402,52 @@
       var both = [p, prod(top2.handle)];
       var sum = both.reduce(function (a, x) { return a + (x.price || 0); }, 0);
       panel.appendChild(el('div', { class: 'mk-actions' }, [
-        el('button', { class: 'mk-btn mk-btn--small', type: 'button', onclick: function (e) { addMany(both, c.name + ' en ' + top2.name, e.currentTarget); } }, ['Neem ' + c.name + ' en ' + top2.name + (sum ? ' · ' + money(sum) : '')])
+        el('button', { class: 'mk-btn mk-btn--small', type: 'button', onclick: function (e) { addMany(both, c.name + ' en ' + top2.name, e.currentTarget); } }, [fill(D.twoCta, { a: c.name, b: top2.name }) + (sum ? ' \u00b7 ' + money(sum) : '')])
       ]));
     } else if (o.action === 'later') {
-      panel.appendChild(el('div', { class: 'mk-actions' }, [link('mk-btn mk-btn--ghost mk-btn--small', BASE + '/collections/all-colors', 'Alle MIRA Colors')]));
+      panel.appendChild(el('div', { class: 'mk-actions' }, [link('mk-btn mk-btn--ghost mk-btn--small', BASE + '/collections/all-colors', D.laterCta)]));
     } else if (o.action === 'close') {
       panel.appendChild(el('div', { class: 'mk-actions' }, [
-        el('button', { class: 'mk-btn', type: 'button', disabled: p.available ? null : 'disabled', onclick: function (e) { addToCart(p, c.name, e.currentTarget); } }, ['Leg ' + c.name + ' in je winkelmand'])
+        el('button', { class: 'mk-btn', type: 'button', disabled: p.available ? null : 'disabled', onclick: function (e) { addToCart(p, c.name, e.currentTarget); } }, [fill(D.closeCta, { color: c.name })])
       ]));
-      sec.appendChild(panel);
-      return sec;
+      return panel;
     }
     /* Achterdeur dicht */
-    panel.appendChild(el('p', { class: 'mk-backdoor', text: D.backDoor }));
+    panel.appendChild(el('p', { class: 'mk-backdoor', text: fill(D.backDoor, { color: c.name }) }));
     panel.appendChild(el('div', { class: 'mk-actions' }, [
       el('button', { class: 'mk-btn mk-btn--small', type: 'button', disabled: p.available ? null : 'disabled', onclick: function (e) { addToCart(p, c.name, e.currentTarget); } }, [fill(D.backDoorNo, { color: c.name })]),
       el('button', { class: 'mk-btn mk-btn--ghost mk-btn--small', type: 'button', onclick: function () { state.handled.push(o.id); state.objection = null; render('keep'); } }, [D.backDoorYes])
     ]));
-    sec.appendChild(panel);
+    return panel;
+  }
+
+  /* Dropdown: een rij per bezwaar, \u00e9\u00e9n tegelijk open. */
+  function objectionBlock(r, c, p) {
+    var sec = el('section', { class: 'mk-section', 'aria-label': D.objectionsTitle }, [
+      el('h3', { text: D.objectionsTitle }),
+      el('p', { class: 'mk-quiet', text: D.objectionsHint })
+    ]);
+    var list = el('div', { class: 'mk-acc' });
+    D.objections.filter(function (x) { return state.handled.indexOf(x.id) === -1; }).forEach(function (x) {
+      var open = state.objection === x.id;
+      var head = el('button', {
+        class: 'mk-acc-head', type: 'button', id: 'mk-acc-h-' + x.id, 'data-obj': x.id,
+        'aria-expanded': open ? 'true' : 'false', 'aria-controls': 'mk-acc-p-' + x.id,
+        onclick: function () {
+          state.objection = open ? null : x.id;
+          render('keep');
+          var again = root.querySelector('[data-obj="' + x.id + '"]');
+          if (again) again.focus({ preventScroll: true });
+        }
+      }, [el('span', { text: x.option })]);
+      var item = el('div', { class: 'mk-acc-item' + (open ? ' is-open' : '') }, [head]);
+      if (open) {
+        var region = el('div', { class: 'mk-acc-panel', id: 'mk-acc-p-' + x.id, role: 'region', 'aria-labelledby': 'mk-acc-h-' + x.id }, [objectionPanel(x, r, c, p)]);
+        item.appendChild(region);
+      }
+      list.appendChild(item);
+    });
+    sec.appendChild(list);
     return sec;
   }
 
