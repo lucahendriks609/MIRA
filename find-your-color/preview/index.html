@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MIRA Find Your Color · lokale preview</title>
+<!-- Jost is alleen een stand-in. Live gebruikt de section Arquitecta en Futura PR uit de theme-assets. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="../src/mira-fyc.css">
+<style>html, body { margin: 0; background: #FDF5EC; }</style>
+</head>
+<body>
+<div class="mk"><div class="mk-wrap" id="mk-root" aria-live="polite"></div></div>
+
+<script type="application/json" id="mk-config"></script>
+<script src="products.sample.js"></script>
+<script>
+  /* Preview-modus: winkelmand, delen en bewaren tonen een melding in plaats van echt te werken. */
+  document.getElementById('mk-config').textContent = JSON.stringify({
+    mode: 'preview',
+    baseUrl: 'https://houseofmira.com',
+    starterPackUrl: '',
+    products: window.MIRA_FYC_SAMPLE_PRODUCTS
+  });
+</script>
+<script src="../src/mira-fyc-data.js"></script>
+<script src="../src/mira-fyc.js"></script>
+</body>
+</html>

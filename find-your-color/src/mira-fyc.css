@@ -1,0 +1,166 @@
+/* MIRA Find Your Color
+   Layout: één smalle redactionele kolom. Drie hoofdstukken, daarna een uitslag die leest als een kleurverhaal.
+   Kleurregel: blauwtinten + Coated Crème. Brush Brown komt bewust niet voor (nooit samen met blauw). */
+.mk {
+  --mk-creme: #FDF5EC;          /* Coated Crème */
+  --mk-ocean: #48BCC5;          /* Ocean Blue */
+  --mk-drip: #0C7B7B;           /* Drip Blue */
+  --mk-liquid: #A7D3D7;         /* Liquid Blue */
+  --mk-ink: #0A5C5C;            /* Drip Blue, donkerder voor lange tekst */
+  --mk-line: rgba(12, 123, 123, .22);
+  --mk-wash: rgba(167, 211, 215, .28);
+  --mk-display: "Arquitecta", "Jost", "Futura", "Century Gothic", sans-serif;
+  --mk-body: "Futura PR", "Futura", "Jost", "Century Gothic", sans-serif;
+  color-scheme: light;
+  background: var(--mk-creme);
+  color: var(--mk-ink);
+  font-family: var(--mk-body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-block: 40px 64px;
+  padding-inline: 16px;
+}
+.mk *, .mk *::before, .mk *::after { box-sizing: border-box; }
+.mk-wrap { max-width: 580px; margin: 0 auto; display: grid; gap: 28px; }
+.mk h1, .mk h2, .mk h3 { font-family: var(--mk-display); font-weight: 400; text-transform: uppercase; letter-spacing: .14em; color: var(--mk-drip); margin: 0; text-wrap: balance; }
+.mk h1 { font-size: clamp(28px, 7.4vw, 42px); line-height: 1.1; }
+.mk h2 { font-size: clamp(20px, 5.2vw, 26px); line-height: 1.2; }
+.mk h3 { font-size: 13px; letter-spacing: .2em; }
+.mk p { margin: 0; }
+.mk-eyebrow { font-family: var(--mk-display); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--mk-drip); }
+.mk-lede { font-size: 18px; max-width: 46ch; }
+.mk-quiet { font-size: 14px; opacity: .8; }
+
+/* Intro */
+.mk-intro { display: grid; gap: 22px; justify-items: start; }
+.mk-mark { width: 64px; height: 64px; color: var(--mk-ocean); }
+.mk-chapters { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; width: 100%; }
+.mk-chapters li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid var(--mk-line); }
+.mk-chapters li:last-child { border-bottom: 1px solid var(--mk-line); }
+.mk-chapters b { font-family: var(--mk-display); font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--mk-drip); font-size: 14px; display: block; }
+.mk-chapters small { font-size: 14px; opacity: .8; }
+.mk-chapters span.n { font-family: var(--mk-display); color: var(--mk-ocean); font-size: 14px; }
+
+/* Knoppen */
+.mk-btn { appearance: none; border: 1px solid var(--mk-drip); background: var(--mk-drip); color: var(--mk-creme); font-family: var(--mk-display); font-size: 13px; letter-spacing: .18em; text-transform: uppercase; padding: 14px 24px; border-radius: 999px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: background .2s, color .2s; }
+.mk-btn:hover { background: var(--mk-ink); }
+.mk-btn--ghost { background: transparent; color: var(--mk-drip); }
+.mk-btn--ghost:hover { background: var(--mk-wash); }
+.mk-btn--small { padding: 10px 16px; font-size: 11px; }
+.mk-btn:disabled { opacity: .4; cursor: not-allowed; }
+.mk :focus-visible { outline: 2px solid var(--mk-ocean); outline-offset: 3px; }
+.mk-link { appearance: none; background: none; border: 0; color: var(--mk-drip); font: inherit; font-size: 14px; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; padding: 6px 0; }
+
+/* Vraag */
+.mk-q { display: grid; gap: 12px; }
+.mk-progress { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.mk-seg { display: grid; gap: 6px; min-width: 0; }
+.mk-seg i { display: block; height: 2px; background: var(--mk-line); position: relative; overflow: hidden; }
+.mk-seg i span { position: absolute; inset: 0 auto 0 0; background: var(--mk-ocean); transition: width .35s ease; }
+.mk-seg em { font-style: normal; font-family: var(--mk-display); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; opacity: .5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mk-seg.is-on em { opacity: 1; color: var(--mk-drip); }
+.mk-count { font-size: 13px; opacity: .7; font-variant-numeric: tabular-nums; }
+.mk-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.mk-options--list { grid-template-columns: 1fr; }
+.mk-options--chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mk-opt { appearance: none; text-align: left; background: transparent; border: 1px solid var(--mk-line); border-radius: 16px; padding: 15px 16px; cursor: pointer; color: inherit; font: inherit; display: grid; gap: 2px; min-width: 0; transition: border-color .2s, background .2s; }
+.mk-opt:hover { border-color: var(--mk-ocean); }
+.mk-opt[aria-pressed="true"] { background: var(--mk-wash); border-color: var(--mk-drip); }
+.mk-opt strong { font-weight: 400; font-size: 16px; color: var(--mk-drip); }
+.mk-opt span { font-size: 13px; opacity: .8; }
+.mk-options--chips .mk-opt { border-radius: 999px; padding: 10px 16px; }
+.mk-options--chips .mk-opt strong { font-size: 15px; }
+.mk-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+/* Uitslag */
+.mk-result { display: grid; gap: 36px; }
+.mk-hero { display: grid; gap: 12px; }
+.mk-type { font-size: 18px; line-height: 1.65; max-width: 48ch; }
+.mk-traits { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.mk-traits li { font-size: 12px; letter-spacing: .08em; padding: 5px 11px; border-radius: 999px; background: var(--mk-wash); }
+.mk-section { display: grid; gap: 14px; padding-top: 24px; border-top: 1px solid var(--mk-line); }
+
+.mk-match { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; align-items: start; }
+.mk-match img { width: 150px; height: 150px; object-fit: contain; background: var(--mk-wash); border-radius: 50%; padding: 10px; max-width: 100%; }
+.mk-match-body { display: grid; gap: 8px; min-width: 0; }
+.mk-name { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .14em; font-size: 22px; color: var(--mk-drip); line-height: 1.2; }
+.mk-pct { font-family: var(--mk-display); font-size: 13px; letter-spacing: .14em; color: var(--mk-drip); font-variant-numeric: tabular-nums; }
+.mk-pct b { font-weight: 400; font-size: 30px; letter-spacing: .04em; }
+.mk-story { font-style: italic; }
+.mk-why { display: grid; gap: 10px; margin: 4px 0 0; }
+.mk-why div { display: grid; gap: 2px; }
+.mk-why dt { font-family: var(--mk-display); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mk-drip); }
+.mk-why dd { margin: 0; font-size: 15px; }
+.mk-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+.mk-rank { list-style: none; margin: 0; padding: 0; display: grid; }
+.mk-rank li { display: grid; grid-template-columns: 24px 64px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--mk-line); }
+.mk-rank li:first-child { border-top: 1px solid var(--mk-line); }
+.mk-rank .n { font-family: var(--mk-display); color: var(--mk-ocean); font-variant-numeric: tabular-nums; }
+.mk-rank img { width: 64px; height: 64px; object-fit: contain; background: var(--mk-wash); border-radius: 50%; padding: 4px; }
+.mk-rank-body { display: grid; gap: 4px; min-width: 0; }
+.mk-rank-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.mk-rank-head .mk-name { font-size: 15px; }
+.mk-rank-head .mk-pct { font-size: 13px; }
+.mk-rank p { font-size: 14px; opacity: .85; }
+
+.mk-panel { background: var(--mk-wash); border-radius: 22px; padding: 20px; display: grid; gap: 14px; }
+.mk-tag { justify-self: start; font-family: var(--mk-display); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: var(--mk-drip); color: var(--mk-creme); }
+.mk-tellrow { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; }
+.mk-tellrow dt { font-family: var(--mk-display); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mk-drip); padding-top: 3px; }
+.mk-tellrow dd { margin: 0; font-size: 15px; display: grid; gap: 6px; }
+.mk-tell { display: grid; gap: 16px; margin: 0; }
+
+.mk-tools { list-style: none; margin: 0; padding: 0; display: grid; }
+.mk-tool { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--mk-line); }
+.mk-tool img { width: 52px; height: 52px; object-fit: contain; background: var(--mk-wash); border-radius: 12px; padding: 4px; }
+.mk-tool-name { font-size: 15px; }
+.mk-tool-why { font-size: 13px; opacity: .75; }
+.mk details summary { cursor: pointer; color: var(--mk-drip); font-size: 15px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.mk details summary::-webkit-details-marker { display: none; }
+.mk details summary::after { content: "+"; font-family: var(--mk-display); }
+.mk details[open] summary::after { content: "–"; }
+.mk details[open] summary { margin-bottom: 12px; }
+
+.mk-share { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; align-items: center; }
+.mk-share canvas { width: 150px; max-width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 14px; box-shadow: 0 10px 30px rgba(12, 123, 123, .16); background: var(--mk-creme); }
+.mk-note { font-size: 13px; opacity: .7; max-width: 52ch; }
+.mk-slogan { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; text-align: center; color: var(--mk-drip); }
+
+.mk-toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--mk-ink); color: var(--mk-creme); padding: 12px 18px; border-radius: 999px; font-size: 14px; max-width: calc(100% - 32px); text-align: center; z-index: 20; font-family: var(--mk-body); }
+
+.mk-screen { animation: mk-in .4s ease both; }
+@keyframes mk-in { from { opacity: .001; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mk-screen { animation: none; } .mk-seg i span { transition: none; } }
+
+@media (max-width: 440px) {
+  .mk-options { grid-template-columns: 1fr; }
+  .mk-match { grid-template-columns: 1fr; }
+  .mk-share { grid-template-columns: 1fr; justify-items: start; }
+  .mk-tellrow { grid-template-columns: 1fr; gap: 4px; }
+  .mk-seg em { font-size: 9px; letter-spacing: .1em; }
+}
+
+/* Inzicht tussen hoofdstukken */
+.mk-insight { display: grid; gap: 18px; }
+.mk-insight .mk-panel h3 { font-size: 11px; }
+
+/* Opbouw vóór de uitslag */
+.mk-reveal { display: grid; gap: 20px; justify-items: start; padding-block: 24px; }
+.mk-reveal-mark .mk-mark { animation: mk-turn 2.6s linear infinite; }
+@keyframes mk-turn { to { transform: rotate(360deg); } }
+.mk-reveal-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.mk-reveal-steps li { display: flex; align-items: center; gap: 12px; font-size: 16px; opacity: .45; transition: opacity .3s; }
+.mk-reveal-steps li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--mk-drip); flex: none; transition: background .3s; }
+.mk-reveal-steps li.is-done { opacity: 1; }
+.mk-reveal-steps li.is-done::before { background: var(--mk-ocean); border-color: var(--mk-ocean); }
+
+/* Tactical empathy en commitment */
+.mk-label { font-style: italic; font-size: 16px; max-width: 50ch; }
+.mk-commit { display: grid; gap: 10px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--mk-line); }
+.mk-commit > p { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; color: var(--mk-drip); }
+.mk-backdoor { font-family: var(--mk-display); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--mk-drip); padding-top: 6px; }
+.mk-stock { font-size: 13px; color: var(--mk-drip); }
+.mk-panel .mk-tools { margin-top: -4px; }
+
+@media (prefers-reduced-motion: reduce) { .mk-reveal-mark .mk-mark { animation: none; } }

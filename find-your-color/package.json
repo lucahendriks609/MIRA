@@ -1,0 +1,12 @@
+{
+  "name": "mira-find-your-color",
+  "private": true,
+  "description": "MIRA Find Your Color: kleurenquiz voor houseofmira.com",
+  "scripts": {
+    "test": "node test/engine.test.js && node test/flow.test.js",
+    "preview": "npx --yes serve . -l 4173"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.0"
+  }
+}

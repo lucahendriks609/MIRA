@@ -1,0 +1,71 @@
+# Naam|familie|finish|ondertoon|diepte|chroma|intensiteit 1-3|persoonlijkheid|stijl|gelegenheid|Color Story (concept)
+# persoonlijkheid: c=confident r=romantic k=calm x=creative a=adventurous e=elegant p=playful m=mysterious w=warm o=optimistic (gewicht 1-9)
+# stijl: C=classy R=romantic B=bold F=fresh T=timeless P=playful   gelegenheid: d=everyday w=work e=evening s=special
+Alba|roze|creme|neutral|light|muted|1|k8 r7 e6|RT|dw|Alba betekent dageraad. Het eerste roze licht boven het landschap: zacht, sereen en nog vol belofte.
+Alpino|wit|creme|cool|light|muted|1|k8 e7 x3|FT|dws|Van de Alpen. Melkwit als verse sneeuw, een stille basis voor alles wat nog komt.
+Amarena|rood|creme|cool|deep|bright|3|c8 m6 r5|BC|es|De donkere Italiaanse kers. Diep roodpaars, verleidelijk en vol karakter.
+Amaretto|nude|creme|warm|light|muted|1|w9 k6 e5|TC|dw|Vernoemd naar de Italiaanse likeur. Warm en uitnodigend, als een avond die nergens heen hoeft.
+Amarone|rood|creme|neutral|deep|muted|3|c8 e8 m5|CB|ews|De wijn uit Veneto. Diep wijnrood, met de rust van iemand die niets hoeft te bewijzen.
+Ambra|topper|shimmer|warm|medium|bright|2|w8 o6 x5|CP|es|Amber in de mediterrane zon. Een gouden gloed die pas echt leeft in het licht.
+Amore Mio|rood|creme|warm|medium|bright|3|r9 c7 w6|RB|es|Mijn liefde. Rood met een hart dat sneller klopt, passie en Italiaanse allure in één streek.
+Ardesia|grijs|creme|neutral|medium|muted|2|k7 e7 c4|TC|wd|Leisteen na een zomerse regenbui. Kracht en rust in één neutrale tint.
+Astro|topper|shimmer|cool|light|bright|1|x7 m6 p4|FP|ds|Sterrenlicht op kalm water. Een etherische glans die vanuit elke hoek anders oplicht.
+Aurata|metallic|metallic|warm|light|bright|2|r6 w6 o6|RP|es|Verguld. Het zachte gouden licht van de Italiaanse ochtendzon.
+Baciata|roze|creme|warm|medium|muted|2|r9 w6 p4|R|ds|Gekust. De zachte blos die achterblijft na een kus.
+Biscotto|nude|creme|warm|medium|muted|1|k8 w6 e5|T|dw|Koekje, naar de romige tinten van Italiaans gebak. Rustig, warm en altijd goed.
+Bordo|rood|creme|warm|deep|muted|3|c8 e7 r4|CB|ews|Bordeauxrood als fluweel. Klassiek, warm en verleidelijk.
+Borgogna|rood|creme|neutral|deep|muted|3|e8 c7 m4|CT|es|Bourgondië en zijn diepe wijnen. Tijdloze elegantie met een sensuele rand.
+Bosincanto|groen|metallic|neutral|deep|muted|3|m9 a6 c6|B|es|Een betoverd Italiaans woud. Bijna zwart groen, met licht dat je pas van dichtbij ziet.
+Brina Gelata|topper|glitter|cool|light|bright|2|p7 o6 x5|PF|se|Bevroren rijp. IJskristallen in het eerste ochtendlicht.
+Brivido|topper|shimmer|cool|light|bright|1|k6 e6 x5|F|ds|Rilling. Het frisse, tintelende gevoel van een koele bries.
+Brunetto|bruin|creme|warm|deep|muted|3|c7 w7 e6|CT|de|Espresso, diep en warm. Krachtig zonder ooit luid te worden.
+Cacao|bruin|creme|warm|medium|muted|2|w9 k6 e5|T|dw|Cacao en melkchocolade. Warmte en verfijning in een natuurlijke tint.
+Caffé Crema|nude|creme|warm|light|muted|1|k7 e7 r5|TC|dw|De crema op een Italiaanse koffie. Subtiel, romig en zeker niet saai.
+Camelia|bruin|creme|neutral|medium|muted|2|r8 w6 e5|RT|de|De cameliabloem. Warm bruin met een romantische mauve ondertoon.
+Cenerella|grijs|creme|cool|light|muted|1|k9 e6 x3|TF|wd|Naar cenere, as. Een zachte asgrijze rust die bij alles past.
+Cobalto|blauw|creme|cool|deep|bright|3|c9 a7 x5|B|es|Kobalt, de diepblauwe zee langs de Italiaanse kust. Helder genoeg om op te vallen.
+Corallina|roze|creme|warm|medium|bright|2|o9 p7 w6|FP|ds|Koraal en zonovergoten kustdagen. Vrolijk, warm en toch verfijnd.
+Creta|nude|shimmer|warm|light|muted|1|w7 e7 k5|CT|ds|Het zonovergoten mediterrane landschap. Nude met een warme gouden gloed.
+Cristallo|topper|shimmer|cool|light|bright|1|x7 p5 e5|FP|ds|Kristal. Helder, sprankelend en net dat beetje extra.
+Desideria|roze|creme|cool|light|muted|1|r8 k6 e6|RT|dw|Verlangen. Een poederzacht roze vol stille elegantie.
+Divina|metallic|metallic|warm|light|bright|2|r7 o6 e6|RP|se|Goddelijk. Roségoud dat het licht vangt zonder overdadig te worden.
+Dolce Vita|roze|creme|warm|light|bright|1|o8 p6 w6|FR|d|Het zoete leven. Genieten van kleine momenten, in zacht lichtroze.
+Dolcetto|roze|creme|warm|light|bright|1|p7 o7 r5|FP|d|Klein zoetje. Perzikroze met een natuurlijke gloed.
+Duna|nude|creme|neutral|light|muted|1|k9 e6 w5|T|dw|Duin. Zonverwarmd zand en de zachte tinten van het mediterrane landschap.
+Eclissi|groen|glitter|cool|deep|muted|3|m9 x6 c5|B|es|Eclips. Het samenspel van licht en duisternis, met een glinstering die het licht vangt.
+Fiamma|rood|creme|warm|medium|bright|3|c9 w7 a5|BC|es|Vlam. Warmte, kracht en energie in een klassiek helderrood.
+Fiordaliso|blauw|creme|cool|light|muted|2|k7 x6 o5|F|d|Korenbloem. Natuurlijke schoonheid en sereniteit in pastelblauw.
+Fiore Mio|roze|creme|neutral|light|bright|1|r8 p6 o5|RF|d|Mijn bloem. Zacht, speels en elegant, als jonge bloemblaadjes.
+Fumo Rosa|grijs|creme|neutral|medium|muted|1|k8 e7 m4|TC|wd|Roze rook. Een vergrijsde taupe met net genoeg warmte.
+Granato|rood|creme|cool|deep|bright|3|c8 e6 r5|CB|es|Granaatsteen. Een uitgesproken rood dat de aandacht trekt en verfijnd blijft.
+Incanta|roze|creme|cool|light|muted|1|r7 k7 p3|R|d|Pure zachtheid. Een romig lichtroze met een vleugje romantiek.
+Incanto|roze|shimmer|cool|light|bright|1|r7 x5 e5|R|sd|Betovering. Lichtroze met een dromerige parelmoerglans.
+Iride|paars|shimmer|cool|light|bright|2|x8 p6 m4|PF|ds|Prisma. Lavendel dat met het licht van kleur verschuift.
+Laguna Blu|topper|glitter|cool|medium|bright|2|a7 o7 p6|FP|ds|Een Italiaanse lagune. Kristalhelder turquoise met fijne schittering.
+Lampo|topper|glitter|cool|light|bright|2|p8 o6 a5|PB|se|Lichtflits. Een heldere sparkle die vanuit elke hoek anders schittert.
+Lucea|topper|glitter|warm|light|bright|2|w7 r6 o5|CP|es|Kaarslicht. Transparant goud met een verfijnde sparkle.
+Lumina|topper|shimmer|neutral|light|muted|1|k6 r6 e5|FR|d|Het zachte spel van licht. Natuurlijk, met net dat beetje extra glans.
+Lunare|metallic|metallic|cool|medium|muted|2|m8 e7 k4|C|ew|Maanlicht. Koel zilvergrijs dat verandert met elk licht.
+Mielora|nude|creme|warm|medium|muted|1|w8 e6 k5|TC|dw|Honing. Zachte beige met een gouden warmte.
+Moka Dolce|bruin|creme|warm|medium|muted|2|w8 k6 e5|T|dw|Romige mokka. Zacht bruin, warm en verzorgd.
+Morena|bruin|creme|warm|deep|muted|3|c7 w7 m4|CB|ed|Pure chocolade. Diepbruin met een zachte warmte.
+Nebbia|grijs|creme|cool|light|muted|1|k9 e5 x4|FT|wd|Ochtendmist. Koel grijs met een vleugje helder blauw.
+Neve|wit|creme|cool|light|bright|2|e6 x6 k5|FT|ds|Verse sneeuw. Puur wit voor eenvoud, een French of verfijnde details.
+Notte|zwart|creme|cool|deep|bright|3|m9 c8 e6|BC|es|Nacht. Kracht en verfijning in intens zwart.
+Oceano Blu|blauw|creme|cool|medium|bright|3|a8 o7 p5|FB|ds|De mediterrane zee. Fris turquoiseblauw dat direct een vleugje zomer brengt.
+Onice|grijs|shimmer|neutral|deep|muted|2|m7 e7 k4|C|ew|Onyx. Een natuursteen met nuances die tot leven komen in het licht.
+Oscuro|bruin|shimmer|warm|deep|muted|2|c6 m6 e6|C|ed|Donker en chic, met een gouden glans die meebeweegt met het licht.
+Pietra|groen|creme|neutral|medium|muted|2|k8 e6 a4|TF|dw|Steen. Gepolijste natuursteen in een ingetogen grijsgroen.
+Rosabella|roze|shimmer|warm|medium|muted|2|r8 w6 e5|R|ds|Oudroze met een delicate parelmoerglans. Zacht, met een bijzondere diepte.
+Rosaura|roze|metallic|neutral|medium|muted|2|r7 e7 m3|CR|es|De gloed van rosé. Mauve-roze met een subtiel metallic effect.
+Rubino Rosso|rood|creme|cool|deep|bright|3|c9 r6 a4|BC|es|Robijn. Intens rood, klassiek, krachtig en chic.
+Sabbia|nude|creme|warm|light|muted|1|k9 w6 e4|T|dw|Zonverwarmd zand aan de mediterrane kust. Rustig en natuurlijk.
+Segreto Nero|paars|glitter|cool|deep|muted|3|m9 c6 r5|BC|es|Zwart geheim. Diep aubergine dat zijn karakter pas in het licht laat zien.
+Selenia|topper|shimmer|cool|light|bright|1|m6 x6 e5|F|ds|De maan. Zacht zilver met een koele blauwe reflectie.
+Selva|groen|creme|cool|deep|bright|3|a7 c7 k4|BC|ed|Een weelderig woud. De rust en kracht van de natuur in smaragdgroen.
+Stellina|topper|shimmer|cool|light|bright|1|o6 p6 r4|FP|ds|Kleine ster. Wit en zilver met een zachte, bijzondere glow.
+Tartufo|bruin|metallic|warm|deep|muted|2|w6 c6 m5|C|ed|Truffel. Aardse bruintinten met een elegante glans.
+Tempesta|grijs|glitter|cool|deep|muted|3|a7 m7 c6|B|es|Storm. Diepgrijs met een sprankelend metallic effect.
+Toffina|nude|creme|warm|medium|muted|1|w8 k6 e5|T|dw|Romige toffee. Warm beige met een vleugje mauve.
+Velluto|roze|shimmer|warm|light|muted|1|r7 e7 w4|RC|ds|Fluweel. Een nude basis met een zachte, rijke glans.
+Verdalia|groen|metallic|cool|deep|bright|3|a8 x6 m5|B|es|De mediterrane natuur. Groen en blauw samen, karaktervol en luxe.

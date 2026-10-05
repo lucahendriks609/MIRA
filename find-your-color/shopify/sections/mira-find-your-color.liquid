@@ -1,0 +1,121 @@
+{%- comment -%}
+  MIRA Find Your Color
+  Kleurenquiz: persoonlijkheid (45%), kleurtype (35%) en voorkeur (20%) leiden naar een top 3 MIRA Colors.
+
+  Installatie
+  1. Upload naar de theme-assets: mira-fyc.css, mira-fyc-data.js, mira-fyc.js (uit /find-your-color/src).
+  2. Upload de lettertypes als .woff2 naar de assets en zet de bestandsnamen hieronder bij @font-face.
+  3. Zet deze section in /sections en voeg hem via de theme-editor toe aan een pagina (bijv. /pages/find-your-color).
+
+  Productdata (foto, prijs, variant, voorraad) haalt mira-fyc.js live op uit /products.json.
+  Deze section geeft alleen instellingen mee en de lijst kleuren met weinig voorraad.
+{%- endcomment -%}
+
+{{ 'mira-fyc.css' | asset_url | stylesheet_tag }}
+
+<style>
+  /* TODO Luca: bestandsnamen van je eigen fonts. Zonder deze bestanden valt de quiz terug op Futura / Century Gothic. */
+  @font-face {
+    font-family: "Arquitecta";
+    src: url("{{ 'Arquitecta-Regular.woff2' | asset_url }}") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Futura PR";
+    src: url("{{ 'FuturaPR-Book.woff2' | asset_url }}") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  #shopify-section-{{ section.id }} .mk {
+    padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+{%- liquid
+  assign low_stock = ''
+  assign threshold = section.settings.low_stock_threshold
+  assign color_collection = collections[section.settings.color_collection]
+-%}
+{%- if threshold > 0 and color_collection != blank -%}
+  {%- paginate color_collection.products by 250 -%}
+    {%- for product in color_collection.products -%}
+      {%- assign v = product.selected_or_first_available_variant -%}
+      {%- if v.inventory_management != blank and v.inventory_quantity > 0 and v.inventory_quantity <= threshold -%}
+        {%- assign low_stock = low_stock | append: product.handle | append: ',' -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+{%- endif -%}
+
+<div class="mk" data-section-id="{{ section.id }}">
+  <div class="mk-wrap" id="mk-root" aria-live="polite">
+    <noscript><p>Zet JavaScript aan om de kleurenquiz te gebruiken.</p></noscript>
+  </div>
+</div>
+
+<script type="application/json" id="mk-config">
+  {
+    "mode": "live",
+    "baseUrl": "",
+    "starterPackUrl": {{ section.settings.starter_pack_url | json }},
+    "lowStock": {{ low_stock | split: ',' | json }}
+  }
+</script>
+<script src="{{ 'mira-fyc-data.js' | asset_url }}" defer></script>
+<script src="{{ 'mira-fyc.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "MIRA Find Your Color",
+  "tag": "section",
+  "class": "mira-fyc-section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "starter_pack_url",
+      "label": "Link naar het starterpack",
+      "info": "Wordt getoond bij de bezwaren 'geen lamp' en 'weet niet of ik het kan'."
+    },
+    {
+      "type": "collection",
+      "id": "color_collection",
+      "label": "Collectie met alle kleuren",
+      "info": "Gebruikt voor de voorraadmelding. Normaal: All colors Gelpolish."
+    },
+    {
+      "type": "range",
+      "id": "low_stock_threshold",
+      "label": "Toon 'Nog maar een paar op voorraad' vanaf",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 5,
+      "info": "Alleen bij echte voorraad. 0 zet de melding uit."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Ruimte boven",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Ruimte onder",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "presets": [
+    { "name": "MIRA Find Your Color" }
+  ]
+}
+{% endschema %}
